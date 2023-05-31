@@ -1,0 +1,68 @@
+TODO:
+- istraziti tacno kakva vrsta atteniton-a je dodata - Bahdanau Attention
+- pokusati sa gru i sa lstm 
+- Glove vs Word2Vec
+- obucavanja i na cornell movies dialogu
+
+- 1. definisati recnik sa najucestalijim recima, ne sa svim recima -> da bi velicina bila adekvatna
+- 2. definisati recnik sa svim recima -> da bi velicina bila adekvatna
+
+- dodati evaluaciju za bleu metriku
+- mora se skratiti answer - summarize odgovora -> upisati u neki novi dokument
+
+- uklanjanje stop words -> nltk biblioteka
+	- samo za pitanja
+- pokusati ikrementalno obucavanje modela
+
+
+REZULTATI:
+- analiza gresaka
+- poredjenje rezultata:
+	kada je mreza lstm ili gru
+	kada se koristi optimizer Adam/RMSProp
+	word2vec ili glove 
+
+
+* T TODO:
+- istraziti tokenizaciju - kod nas je rucno odradjena tokenizacija (+)
+	** tokenizer (1. kt)
+	- za kreiranje recnika podataka => tokenizer.fit_on_texts(full_text)
+	- struktura podataka u recniku - {word_id : value}
+	- sva pitanja i odgovore prevesti tako da su reci oznacene rednim brojem iz recnika (npr.[ 34, 44, 999, 87] = [ How are you? ]) 
+  		tokenizer.texts_to_sequences(input_texts)
+		tokenizer.texts_to_sequences(target_texts)
+
+- word2vec umesto glove-a ?
+* Word embedding - Enables semantics. Measures distance between words in semantic space.
+
+- TODO: TensorBoard/Scalar - To visualize plot of accuracy, loss during training and validation
+
+- bidirectionalLSTM:
+	Here's an example of how to use bidirectional LSTMs in an Encoder-Decoder architecture for machine translation:
+
+	1. Encoder: The bidirectional LSTM is used in the encoder to process the input sentence. The forward LSTM reads the input sentence 
+	from left to right, while the backward LSTM reads it from right to left. This allows the encoder to capture both past and future context of the input sentence.
+	
+	2. Decoder: The decoder is typically a unidirectional LSTM that generates the output sentence based on the context vector produced by the encoder. The context vector
+	is a summary of the input sequence that the decoder uses to generate the output sentence.
+
+	3. Training: During training, the model is optimized to minimize the difference between the predicted output sentence and the ground truth output sentence using a loss 
+	function such as cross-entropy loss.
+
+	4. Inference: During inference, the encoder is used to encode the input sentence, and the decoder is used to generate the output sentence based on the encoded input and 
+	the previous generated word. This process is repeated until an end-of-sentence token is generated.
+
+- optimizer: Adam vs RMSProp - istraziti, probati oba ?
+
+
+* PODACI:
+- iskoristiti summarize odgovora -> upisati u neki novi dokument
+- integracija podataka iz svih izvora
+
+* V TODO:
+- removing stop words, lemmatization and stemming - istraziti namenu + funkcija + na koji nacin popravlja rez i da li nama moze da pomogne ?
+- istraziti bas za primer chatbota
+- pokusati ikrementalno obucavanje modela
+
+
+
